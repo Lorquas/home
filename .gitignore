@@ -3,3 +3,7 @@
 \#*
 *.swp
 *.swo
+
+#emacs stuff I don't want to track
+.emacs.d/emacs-starter-kit
+.emacs.d/session*
