@@ -51,14 +51,6 @@ alias po='ping -c 3 -w 3 4.2.2.2'
 alias pi='ping -c 3 -w 3 172.16.52.28'
 alias pg='ping www.google.com'
 
-#ssh to remote servers
-alias kc='ssh jmolet@kickstart.rdu.redhat.com'
-alias l2='ssh jmolet@l2.corp.redhat.com'
-alias lc='ssh jmolet@lacrosse.redhat.com'
-alias sb='ssh jmolet@strongbad.rdu.redhat.com'
-alias hdn='ssh jmolet@hdn.corp.redhat.com'
-alias fss='ssh jmolet@fsync-server.rdu.redhat.com'
-
 #ls
 alias l='ls -l'
 alias la='ls -al'
@@ -84,19 +76,11 @@ alias git-push-upstream='git checkout master && git merge sm-clj && git push ups
 alias ssh-remove='ssh-add -D'
 alias ssh_add_rh='ssh-add -D; ssh-add ~/.ssh/id_rsa' #~/rhdr/rhdr-2010-07-22 ~/rhdr/rhdr-2010-04-01 ~/rhdr/rhdr-2009-11-13 ~/rhdr/rhdr-2009-07-20 ~/rhdr/rhdr-2009-02-23 ~/rhdr/rhdr-2008-09-08 ~/rhdr/rhdr-2008-06-27 ~/rhdr/rhdr-2008-03-11 ~/rhdr/rhdr-2007-10-08 ~/rhdr/rhdr-2007-05-25 ~/rhdr/rhdr-2007-05-03 ~/rhdr/rhdr-2007-07-17'
 
-#alias showpw3='vim -Rm /home/jmolet/it-passwords/passwords/helpdesk/TierIII/passwords.asc'
-#alias showpw='vim -Rm /home/jmolet/it-passwords/passwords/helpdesk/TierII/passwords.asc'
-#alias updatepw='cd /home/jmolet/it-passwords; git pull; cd -'
-
 alias fart='echo I think I pooed a little...'
+
+#remote servers
 alias sshlss='ssh -XYC Lorquas@tirpitz.kicks-ass.org'
-
 alias sshncsu='ssh -XYC jcmolet@remote-linux.eos.ncsu.edu'
-#alias unlock='cd /home/rdu/jmolet/.mozilla/firefox/85u7ok84.default; rm -f lock .parentlock; cd /home/rdu/jmolet/.thunderbird/HelpDesk.default; rm -f lock .parentlock; cd'
-#alias crypthome-decrypt="ssh -t hdn.corp.redhat.com crypthome-decrypt"
-
-alias tokenportal='ssh -D 9998 bastion.util.phx2.redhat.com'
-alias bastion='ssh bastion.util.phx2.redhat.com'
 
 alias x2112='ssh -XYC jmolet@x2112.usersys.redhat.com'
 alias xanadu='ssh -XYC jmolet@xanadu.usersys.redhat.com'
