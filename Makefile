@@ -35,7 +35,9 @@ $(HOME)/.oh-my-zsh:
 $(HOME)/.zshrc:
 	ln -s $(DEST_PATH)/.zshrc $(HOME)/.zshrc
 
-
+$(HOME)/.vimrc:
+	ln -s $(DEST_PATH)/.vimrc $(HOME)/.vimrc
+	
 # local settings file
 $(LOCAL_SETTINGS_FILE):
 	touch $(LOCAL_SETTINGS_FILE)
