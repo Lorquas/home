@@ -1,8 +1,13 @@
 Notes
 ====
 
-For the zsh bits, it requires oh-my-zsh (follow the install instructions there):
+Clone the repo into your home dir:
 
-https://github.com/sorin-ionescu/oh-my-zsh.git
+ $ cd; git clone git@github.com:Lorquas/home.git .home
+ 
+Go to the new git dir and run make install:
 
+ $ cd $HOME/.home && make install
+ 
+.home will then clone the oh-my-zsh repository (if necessary) and create a symlink in your home dir .zshrc to adjust $PATH as well as set zsh preferences.
 
