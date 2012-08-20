@@ -55,7 +55,8 @@
           (lambda () 
             (define-key slime-mode-map " " 'slime-space)
             (define-key slime-mode-map (kbd "M-[") 'paredit-wrap-square)
-            (define-key slime-repl-mode-map [C-S-up] 'slime-repl-previous-matching-input)))
+            (define-key slime-repl-mode-map [C-S-up] 'slime-repl-previous-matching-input)
+            (define-key slime-repl-mode-map "{" 'paredit-open-curly)))
 
 (defun goto-last-edit-point ()
   "Go to the last point where editing occurred."
