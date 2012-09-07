@@ -21,7 +21,7 @@ alias pcat='pygmentize'
 
 #coding commands
 alias lein-rebuild='echo "+ lein clean";lein clean;echo "+ lein deps"; lein deps;echo "+ lein compile"; lein compile'
-alias git-pull='git checkout master && git pull upstream && git push origin master && git checkout sm-clj && git rebase master && git push origin sm-clj'
+alias git-pull='git checkout master && git pull upstream master && git push origin master && git checkout sm-clj && git rebase master && git push origin sm-clj'
 alias git-push='git push origin sm-clj:master'
 alias git-push-upstream='git checkout master && git merge sm-clj && git push upstream master && git push origin master && git checkout sm-clj'
 
