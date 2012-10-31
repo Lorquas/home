@@ -73,3 +73,4 @@ alias jmolet-5server-console='console-connect xanadu.usersys.redhat.com jmolet-5
 
 alias jmolet-cp0='rssh jmolet-cp0'
 alias jmolet-cp1='rssh jmolet-cp1'
+alias jmolet-cp2='rssh jmolet-cp2'
