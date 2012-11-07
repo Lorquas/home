@@ -49,11 +49,11 @@ alias qeblade4='rssh qeblade4.rhq.lab.eng.bos.redhat.com'
 alias qeblade25='rssh qeblade25.rhq.lab.eng.bos.redhat.com'
 
 alias jmolet-vm1='rssh jmolet-vm1'
-alias jmolet-vm1-vnc='vncviewer jmolet-vm1.usersys.redhat.com:2 --DesktopSize=1280x1024'
+alias jmolet-vm1-vnc='vncviewer jmolet-vm1.usersys.redhat.com:2 --DesktopSize=1024x768'
 alias jmolet-vm1-console='console-connect xanadu.usersys.redhat.com jmolet-vm1'
 
 alias jmolet-vm2='rssh jmolet-vm2'
-alias jmolet-vm2-vnc='vncviewer jmolet-vm2.usersys.redhat.com:2 --DesktopSize=1280x1024'
+alias jmolet-vm2-vnc='vncviewer jmolet-vm2.usersys.redhat.com:2 --DesktopSize=1024x768'
 alias jmolet-vm2-console='console-connect xanadu.usersys.redhat.com jmolet-vm2'
 
 alias jmolet-vm3='rssh jmolet-vm3'
@@ -65,7 +65,7 @@ alias jmolet-vm4-vnc='vncviewer jmolet-vm4.usersys.redhat.com:2 --DesktopSize=12
 alias jmolet-vm4-console='console-connect xanadu.usersys.redhat.com jmolet-vm4'
 
 alias jmolet-vm0='rssh jmolet-vm0'
-alias jmolet-vm0-vnc='vncviewer jmolet-vm0.usersys.redhat.com:2 --DesktopSize=1280x1024'
+alias jmolet-vm0-vnc='vncviewer jmolet-vm0.usersys.redhat.com:2 --DesktopSize=1024x768'
 alias jmolet-vm0-console='console-connect xanadu.usersys.redhat.com jmolet-vm0'
 
 alias jmolet-5server='rssh jmolet-5server'

@@ -50,6 +50,12 @@
             (define-key clojure-mode-map "{" 'paredit-open-curly)
             (define-key clojure-mode-map (kbd "TAB") 'slime-indent-and-complete-symbol)))
 
+(add-hook 'slime-repl-mode-hook 
+          (lambda ()
+            (font-lock-mode nil)
+            (clojure-mode-font-lock-setup)
+            (font-lock-mode t)))
+
 (autoload 'paredit-wrap-square "paredit")
 (add-hook 'slime-connected-hook
           (lambda () 
