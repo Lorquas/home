@@ -5,5 +5,7 @@
 *.swo
 
 #emacs stuff I don't want to track
-.emacs.d/emacs-starter-kit
-.emacs.d/session*
+emacs.d/emacs-starter-kit
+emacs.d/session*
+emacs.d/places
+emacs.d/url/

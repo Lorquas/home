@@ -57,11 +57,11 @@ alias jmolet-vm2-vnc='vncviewer jmolet-vm2.usersys.redhat.com:2 --DesktopSize=10
 alias jmolet-vm2-console='console-connect xanadu.usersys.redhat.com jmolet-vm2'
 
 alias jmolet-vm3='rssh jmolet-vm3'
-alias jmolet-vm3-vnc='vncviewer jmolet-vm3.usersys.redhat.com:2 --DesktopSize=1280x1024'
+alias jmolet-vm3-vnc='vncviewer jmolet-vm3.usersys.redhat.com:2 --DesktopSize=1024x768'
 alias jmolet-vm3-console='console-connect xanadu.usersys.redhat.com jmolet-vm3'
 
 alias jmolet-vm4='rssh jmolet-vm4'
-alias jmolet-vm4-vnc='vncviewer jmolet-vm4.usersys.redhat.com:2 --DesktopSize=1280x1024'
+alias jmolet-vm4-vnc='vncviewer jmolet-vm4.usersys.redhat.com:2 --DesktopSize=1024x768'
 alias jmolet-vm4-console='console-connect xanadu.usersys.redhat.com jmolet-vm4'
 
 alias jmolet-vm0='rssh jmolet-vm0'
