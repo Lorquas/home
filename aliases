@@ -20,10 +20,35 @@ alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-ti
 alias pcat='pygmentize'
 
 #coding commands
-alias lein-rebuild='echo "+ lein clean";lein clean;echo "+ lein deps"; lein deps;echo "+ lein compile"; lein compile'
-alias git-pull='git checkout master && git pull upstream master && git push origin master && git checkout sm-clj && git rebase master && git push origin sm-clj'
+
+git_pull(){
+    set -x
+    git checkout master && git pull upstream master && git push origin master && git checkout sm-clj && git rebase master && git push origin sm-clj
+    set +x
+}
+
+git_push_upstream(){
+    set -x 
+    git checkout master && git merge sm-clj && git push upstream master && git push origin master && git checkout sm-clj
+    set +x
+}
+
+lein_rebuild(){
+    set -x
+    lein clean
+    lein deps
+    lein compile
+    set +x
+}
+
 alias git-push='git push origin sm-clj'
-alias git-push-upstream='git checkout master && git merge sm-clj && git push upstream master && git push origin master && git checkout sm-clj'
+alias git-pull='git_pull'
+alias git-push-upstream='git_push_upstream'
+alias lein-rebuild='lein_rebuild'
+
+#alias lein-rebuild='echo "+ lein clean";lein clean;echo "+ lein deps"; lein deps;echo "+ lein compile"; lein compile'
+#alias git-pull='git checkout master && git pull upstream master && git push origin master && git checkout sm-clj && git rebase master && git push origin sm-clj'
+#alias git-push-upstream='git checkout master && git merge sm-clj && git push upstream master && git push origin master && git checkout sm-clj'
 
 #ssh commands
 alias ssh-remove='ssh-add -D'
@@ -32,6 +57,16 @@ alias ssh_add_rh='ssh-add -D; ssh-add ~/.ssh/id_rsa' #~/rhdr/rhdr-2010-07-22 ~/r
 alias fart='echo I think I pooed a little...'
 
 #remote servers
+
+sshxyc(){
+    if ( ! [ -z "$1" ] && ! [ -z "$2" ] ); then
+        echo $1
+        echo $2
+    else
+        echo $1
+    fi
+}
+
 alias sshlss='ssh -XYC Lorquas@tirpitz.kicks-ass.org'
 alias sshncsu='ssh -XYC jcmolet@remote-linux.eos.ncsu.edu'
 
