@@ -58,20 +58,30 @@
             (font-lock-mode t)))
 
 (add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
-(defun my-nrepl-mode-setup ()
-  (require 'nrepl-ritz))
+;(defun my-nrepl-mode-setup ()
+;  (require 'nrepl-ritz))
 
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
 (defvar my-packages '(clojure-mode
                       nrepl
-                      nrepl-ritz))
+                      ;nrepl-ritz
+                      ;cider
+                      ))
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+;(defadvice message (after message-tail activate)
+;  "goto point max after a message in nrepl-server"
+;  (with-current-buffer "*nrepl-server*"
+;    (goto-char (point-max))
+;    (let ((windows (get-buffer-window-list (current-buffer) nil t)))
+;      (mapc (lambda (w) (set-window-point w (point-max))) windows))))
 
 ;(require 'sr-speedbar)
 ;(require 'speedbar)
@@ -83,3 +93,15 @@
 ;(setq ecb-speedbar-buffer-sync nil)
 ;(setq speedbar-tag-hierarchy-method '(speedbar-sort-tag-hierarchy))
 ;(setq ecb-auto-expand-directory-tree)
+;
+
+
+;; python
+
+;(add-to-list 'load-path "/home/jmolet/Projects/emacs-for-python/epy-init.el")
+;(require 'epy-setup)
+;(require 'epy-python)
+;(require 'epy-completion)
+;(require 'epy-editing)
+;(require 'epy-bindings)
+;(require 'epy-nose)
