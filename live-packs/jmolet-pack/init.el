@@ -5,8 +5,9 @@
 
 ;; Load bindings config
 (live-load-config-file "bindings.el")
-(require 'nrepl)
 (require 'color-theme)
+(require 'cider)
+(require 'rainbow-delimiters)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
@@ -19,6 +20,7 @@
      ,desc :group 'faces))
 
 ;; Define extra clojure faces
+(defcljface clojure-java-call    "#7587a6"   "Clojure Java calls")
 (defcljface clojure-keyword      "#45b8f2"   "Clojure keywords")
 (defcljface clojure-special      "#0074e8"   "Clojure special")
 (defcljface clojure-double-quote "#00920A"   "Clojure special")
@@ -29,6 +31,8 @@
           '(((":\\w+" . 'clojure-keyword))
             (("#?\"" 0 'clojure-double-quote prepend))
             (("nil\\|true\\|false\\|%[1-9]?" . 'clojure-special))
+            (("(\\(\\.[^ \n)]*\\|[^ \n)]+\\.\\|new\\)\\([ )\n]\\|$\\)" 1
+              'clojure-java-call))
             (("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 'font-lock-warning-face t))
             (("(\\(->\\>\\)" 0 (progn (compose-region (match-beginning 1)
                                                       (match-end 1) "→") nil)))
@@ -37,71 +41,23 @@
             (("(\\(complement\\>\\)" 0 (progn (compose-region
                                                (match-beginning 1)
                                                (match-end 1) "¬") nil)))
-            (("^[a-zA-Z0-9-.*+!_?]+?>" . 'nrepl-prompt-face)))))
+            (("^[a-zA-Z0-9-.*+!_?]+?>" . 'cider-repl-prompt-face)))))
 
-(eval-after-load "nrepl"
+(eval-after-load 'cider-repl-mode
   '(progn
-     (tweak-clojure-syntax 'nrepl-mode)))
+     (font-lock-mode nil)
+     (tweak-clojure-syntax 'cider-repl-mode)
+     (font-lock-mode t)))
 
-(eval-after-load "clojure-mode"
+(eval-after-load 'clojure-mode
   '(progn
      (tweak-clojure-syntax 'clojure-mode)))
 
-(require 'rainbow-delimiters)
-(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-
-(add-hook 'nrepl-mode-hook
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'cider-repl-mode-hook
           (lambda ()
             (font-lock-mode nil)
             (clojure-mode-font-lock-setup)
             (font-lock-mode t)))
 
-(add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
-;(defun my-nrepl-mode-setup ()
-;  (require 'nrepl-ritz))
-
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
-(defvar my-packages '(clojure-mode
-                      nrepl
-                      ;nrepl-ritz
-                      ;cider
-                      ))
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
-
-;(defadvice message (after message-tail activate)
-;  "goto point max after a message in nrepl-server"
-;  (with-current-buffer "*nrepl-server*"
-;    (goto-char (point-max))
-;    (let ((windows (get-buffer-window-list (current-buffer) nil t)))
-;      (mapc (lambda (w) (set-window-point w (point-max))) windows))))
-
-;(require 'sr-speedbar)
-;(require 'speedbar)
-;(speedbar-add-supported-extension ".clj")
-;(setq ecb-use-speedbar-instead-native-tree-buffer 'dir)
-;(setq speedbar-show-unknown-files t)
-;(setq speedbar-tag-regroup-maximum-length 100)
-;(setq ecb-primary-secondary-mouse-buttons 'mouse-1--C-mouse-1)
-;(setq ecb-speedbar-buffer-sync nil)
-;(setq speedbar-tag-hierarchy-method '(speedbar-sort-tag-hierarchy))
-;(setq ecb-auto-expand-directory-tree)
-;
-
-
-;; python
-
-;(add-to-list 'load-path "/home/jmolet/Projects/emacs-for-python/epy-init.el")
-;(require 'epy-setup)
-;(require 'epy-python)
-;(require 'epy-completion)
-;(require 'epy-editing)
-;(require 'epy-bindings)
-;(require 'epy-nose)
+(tweak-clojure-syntax 'cider-repl-mode)
