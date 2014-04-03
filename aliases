@@ -1,3 +1,5 @@
+export AUTOTEST_PATH='/home/jmolet/Projects/autotest'
+
 ##ping
 alias p='ping'
 alias po='ping -c 3 -w 3 4.2.2.2'
@@ -22,14 +24,24 @@ alias pcat='pygmentize'
 #coding commands
 
 git_pull(){
+    if [[ -z "$1" ]]; then
+        BR="sm-clj"
+    else
+        BR="$1"
+    fi
     set -x
-    git checkout master && git pull upstream master && git push origin master && git checkout sm-clj && git rebase master && git push origin sm-clj
+    git checkout master && git pull upstream master && git push origin master && git checkout $BR && git rebase master && git push origin $BR
     set +x
 }
 
 git_push_upstream(){
+    if [[ -z "$1" ]]; then
+        BR="sm-clj"
+    else
+        BR="$1"
+    fi
     set -x 
-    git checkout master && git merge sm-clj && git push upstream master && git push origin master && git checkout sm-clj
+    git checkout master && git merge $BR && git push upstream master && git push origin master && git checkout $BR
     set +x
 }
 

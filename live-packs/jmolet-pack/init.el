@@ -2,6 +2,18 @@
 ;;
 ;; User this file to initiate the pack configuration.
 ;; See README for more information.
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("gnu" . "http://elpa.gnu.org/packages/") t)
+(package-initialize)
+
+(when (not package-archive-contents)
+    (package-refresh-contents))
+
 
 ;; Load bindings config
 (live-load-config-file "bindings.el")
@@ -61,3 +73,13 @@
             (font-lock-mode t)))
 
 (tweak-clojure-syntax 'cider-repl-mode)
+
+;;python stuff from http://caisah.info/emacs-for-python/
+(add-hook 'python-mode-hook 'auto-complete-mode)
+(add-hook 'python-mode-hook 'jedi:ac-setup)
+;(add-hook 'after-init-hook #'global-flycheck-mode)
+;(require 'autopair)
+;(add-hook 'python-mode-hook 'autopair-mode)
+;;(autopair-global-mode) ;; to enable in all buffers
+
+(add-hook 'python-mode-hook 'linum-mode)
