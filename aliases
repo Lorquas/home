@@ -64,7 +64,7 @@ alias lein-rebuild='lein_rebuild'
 
 #ssh commands
 alias ssh-remove='ssh-add -D'
-alias ssh_add_rh='ssh-add -D; ssh-add ~/.ssh/id_rsa' #~/rhdr/rhdr-2010-07-22 ~/rhdr/rhdr-2010-04-01 ~/rhdr/rhdr-2009-11-13 ~/rhdr/rhdr-2009-07-20 ~/rhdr/rhdr-2009-02-23 ~/rhdr/rhdr-2008-09-08 ~/rhdr/rhdr-2008-06-27 ~/rhdr/rhdr-2008-03-11 ~/rhdr/rhdr-2007-10-08 ~/rhdr/rhdr-2007-05-25 ~/rhdr/rhdr-2007-05-03 ~/rhdr/rhdr-2007-07-17'
+alias ssh_add_rh='ssh-add -D; ssh-add ~/.ssh/id_rsa ~/.ssh/automatjon'
 
 alias fart='echo I think I pooed a little...'
 
