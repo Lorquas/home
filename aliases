@@ -20,6 +20,7 @@ alias lf='ls -F --color=tty'
 alias vi='vim'
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 alias pcat='pygmentize'
+alias subl='subl -n .'
 
 #coding commands
 
