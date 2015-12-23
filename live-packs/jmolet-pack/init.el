@@ -69,7 +69,7 @@
 (add-hook 'cider-repl-mode-hook
           (lambda ()
             (font-lock-mode nil)
-            (clojure-mode-font-lock-setup)
+            (clojure-font-lock-setup)
             (font-lock-mode t)))
 
 (tweak-clojure-syntax 'cider-repl-mode)
