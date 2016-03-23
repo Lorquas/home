@@ -162,10 +162,6 @@ autocmd BufWinLeave * call clearmatches()
 "autocmd InsertLeave * redraw!
 let c_space_errors = 1
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 " Set your lines to 100 characters long for Ruby files: (make the 101 column all red)
 au Filetype ruby set textwidth=100
 au Filetype ruby let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
