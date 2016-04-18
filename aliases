@@ -18,7 +18,7 @@ alias lf='ls -F --color=tty'
 #alias mv='mv -i'
 #alias rm='rm -i'
 alias vi='vim'
-alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+alias which='alias | /usr/local/bin/which --tty-only --read-alias --show-dot --show-tilde'
 alias pcat='pygmentize'
 alias subl='subl -n .'
 
@@ -122,3 +122,21 @@ alias jmolet-5server-console='console-connect xanadu.usersys.redhat.com jmolet-5
 alias jmolet-cp0='rssh jmolet-cp0'
 alias jmolet-cp1='rssh jmolet-cp1'
 alias jmolet-cp2='rssh jmolet-cp2'
+
+function ssa() {
+    cd ~/Projects/spine
+    ssh ansibler@$(env/bin/python script/node_selector.py ${1})
+}
+
+function ssap() {
+    cd ~/Projects/spine
+    export PURGE_EC2_CACHE=true
+    ssh ansibler@$(env/bin/python script/node_selector.py ${1})
+}
+
+function i() {
+    cd ~/Projects/spine
+    source env/bin/activate
+    ansible/inventory/ec2
+}
+
