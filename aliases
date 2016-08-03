@@ -1,6 +1,7 @@
+
+##rust
 export PATH=/home/jmolet/.cargo/bin:$PATH
 export RUST_SRC_PATH='/home/jmolet/Projects/rust/src'
-export AUTOTEST_PATH='/home/jmolet/Projects/autotest'
 
 ##ping
 alias p='ping'
@@ -88,15 +89,24 @@ alias sshncsu='ssh -XYC jcmolet@remote-linux.eos.ncsu.edu'
 alias x2112='ssh -XYC jmolet@x2112.usersys.redhat.com'
 alias xanadu='ssh -XYC jmolet@xanadu.usersys.redhat.com'
 alias jmolet='ssh -XYC jmolet@jmolet.usersys.redhat.com'
+alias cygnus='ssh -XYC jmolet@cygnus.usersys.redhat.com'
 
-alias mgmt1='ssh -XYC root@mgmt1.rhq.lab.eng.bos.redhat.com'
-alias mgmt1-console='console -M console.lab.bos.redhat.com mgmt1.rhq.lab.eng.bos.redhat.com'
-alias mgmt4='ssh -XYC root@mgmt4.rhq.lab.eng.bos.redhat.com'
-alias mgmt4-console='console -M console.lab.bos.redhat.com mgmt4.rhq.lab.eng.bos.redhat.com'
 alias mgmt5='ssh -XYC root@mgmt5.rhq.lab.eng.bos.redhat.com'
 alias mgmt5-console='console -M console.lab.bos.redhat.com mgmt5.rhq.lab.eng.bos.redhat.com'
 alias qeblade4='rssh qeblade4.rhq.lab.eng.bos.redhat.com'
 alias qeblade25='rssh qeblade25.rhq.lab.eng.bos.redhat.com'
+
+function ssh-vm(){
+  rssh jmolet-vm${1}
+}
+
+function ssh-vm-vnc(){
+  vncviewer jmolet-vm${1}.usersys.redhat.com:2 --DesktopSize=1024x768
+}
+
+function ssh-vm-console(){
+  console-connect xanadu.usersys.redhat.com jmolet-vm${1}
+}
 
 alias jmolet-vm1='rssh jmolet-vm1'
 alias jmolet-vm1-vnc='vncviewer jmolet-vm1.usersys.redhat.com:2 --DesktopSize=1024x768'
