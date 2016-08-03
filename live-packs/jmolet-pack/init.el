@@ -14,7 +14,10 @@
 (when (not package-archive-contents)
     (package-refresh-contents))
 
+(setq tab-width 2)
+(setq indent-level 2)
 
+;; clojure stuff
 ;; Load bindings config
 (live-load-config-file "bindings.el")
 (require 'color-theme)
@@ -81,5 +84,13 @@
 ;(require 'autopair)
 ;(add-hook 'python-mode-hook 'autopair-mode)
 ;;(autopair-global-mode) ;; to enable in all buffers
-
 (add-hook 'python-mode-hook 'linum-mode)
+
+;; rust stuff
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(setq racer-cmd "~/.cargo/bin/racer") ;; Rustup binaries PATH
+(setq racer-rust-src-path "/home/jmolet/Projects/rust/src") ;; Rust source code PATH
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)

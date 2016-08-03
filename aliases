@@ -1,3 +1,5 @@
+export PATH=/home/jmolet/.cargo/bin:$PATH
+export RUST_SRC_PATH='/home/jmolet/Projects/rust/src'
 export AUTOTEST_PATH='/home/jmolet/Projects/autotest'
 
 ##ping
@@ -41,7 +43,7 @@ git_push_upstream(){
     else
         BR="$1"
     fi
-    set -x 
+    set -x
     git checkout master && git merge $BR && git push upstream master && git push origin master && git checkout $BR
     set +x
 }
