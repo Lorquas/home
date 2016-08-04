@@ -1,9 +1,13 @@
 
-##rust
-export PATH=/home/jmolet/.cargo/bin:$PATH
-export RUST_SRC_PATH='/home/jmolet/Projects/rust/src'
+## rust
+export PATH=~/.cargo/bin:$PATH
+export RUST_SRC_PATH='~/Projects/rust/src'
 
-##ping
+## go
+export GOPATH=~/.go
+export PATH=$PATH:$GOPATH/bin
+
+## ping
 alias p='ping'
 alias po='ping -c 3 -w 3 4.2.2.2'
 alias pi='ping -c 3 -w 3 172.16.52.28'
