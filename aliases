@@ -1,6 +1,6 @@
 
 ## rust
-export PATH=~/.cargo/bin:$PATH
+export PATH=$PATH:~/.cargo/bin
 export RUST_SRC_PATH='~/Projects/rust/src'
 
 ## go
